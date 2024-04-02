@@ -174,6 +174,6 @@ Output:
 
 ![fo25](https://github.com/K-Seaba/SAS-Projects/assets/83554164/7384052a-10f8-4acb-ae63-ed0cafa901ad)
 
-Q2.
-
 According to the output, the mean and standard deviation here are 3.4659816 and	1.1135838 respectively.
+
+Q2.
