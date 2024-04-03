@@ -180,7 +180,7 @@ Q2.  Here we use ```proc iml``` to answer the questions below.
 
 ![Q2](https://github.com/K-Seaba/SAS-Projects/assets/83554164/917d3b2e-98ec-4cac-925b-753b964c9b21)
 
-Before we solve the problems, let's first find the vectors **b**, **c**, and **d**.
+Before we solve the problems, let's first find the vectors **b**, **c**, **d**, and hence the matrix **A**.
 
 $$
 \mathbf{b'X} = 2X_1 + 2X_2 - X_3 = \left(2, 2, -1\right) \begin{pmatrix}
@@ -246,3 +246,70 @@ i.e., \mathbf{d'} = \left(1,0,1\right) \space and \space \mathbf{d} = \begin{pma
 \end{pmatrix}.
 $$
 
+Therefore,
+
+$$
+\mathbf{A} = \begin{pmatrix}
+\mathbf{b'}\\
+\mathbf{c'}
+\end{pmatrix} = \begin{pmatrix}
+2 & 2 & -1\\
+1 & -1 & 3
+\end{pmatrix}.
+$$
+
+Now that we have the vectors **b**, **c**, **d**, and the matrix **A**, we can proceed to solving the questions. But before that, we need to load our variables in SAS.
+
+```sas
+proc iml;
+*reset nolog; *Prevents cluttering the log;
+
+b={2,2,-1};
+c={1,-1,3};
+d={1,0,1};
+print b c d;
+
+sig={50 36 18, 36 36 0, 18 0 72};
+print sig;
+A= {2 2 -1, 1 -1 3};
+print A;
+```
+
+In the above SAS code, we define the variable **b**, **c**, **d**, **A** and sigma the covariance matrix as sig.
+
+We can see how they look in the following output.
+
+![SAS load vectors](https://github.com/K-Seaba/SAS-Projects/assets/83554164/015c730d-f407-4cd1-9523-c0bb4d122e45)
+
+
+To solve the problems in (a), (b) and (c) using ```proc iml```, we use the following rule:
+
+![cov def](https://github.com/K-Seaba/SAS-Projects/assets/83554164/38f10231-c0e9-4fb3-a4b8-8be5888af694)
+
+
+For (d) we use the rule:
+
+![q2 d](https://github.com/K-Seaba/SAS-Projects/assets/83554164/467aaf2e-3f03-4b78-ae37-6b5b3f94f007)
+
+
+For (e) we use the rule:
+
+![q2d](https://github.com/K-Seaba/SAS-Projects/assets/83554164/b896f43c-bc66-465e-893a-73ac0cc96386)
+
+We now have everything we need to solve the questions. Let's proceed.
+
+```sas
+q2a = b`*sig*b;
+q2b = c`*sig*c;
+q2c = b`*sig*c;
+q2d = q2c/(q2a*q2b);
+q2e = A*sig*A`;
+
+print q2a q2b q2c q2d q2e;
+```  
+
+Output:
+
+![q2 sol](https://github.com/K-Seaba/SAS-Projects/assets/83554164/93953875-9e9f-48aa-8562-94a9f335c146)
+
+We have now solved the problems a, b, c, d, and e of Q2.
