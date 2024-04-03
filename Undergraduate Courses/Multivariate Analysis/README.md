@@ -176,4 +176,73 @@ Output:
 
 According to the output, the mean and standard deviation here are 3.4659816 and	1.1135838 respectively.
 
-Q2.
+Q2.  Here we use ```proc iml``` to answer the questions below. 
+
+![Q2](https://github.com/K-Seaba/SAS-Projects/assets/83554164/917d3b2e-98ec-4cac-925b-753b964c9b21)
+
+Before we solve the problems, let's first find the vectors **b**, **c**, and **d**.
+
+$$
+\mathbf{b'X} = 2X_1 + 2X_2 - X_3 = \left(2, 2, -1\right) \begin{pmatrix}
+X_{1}\\
+X_{2}\\
+X_{3}
+\end{pmatrix} = \left(X_1, X_2, X_3\right)\begin{pmatrix}
+2\\
+2\\
+-1
+\end{pmatrix} = \mathbf{X'b},
+$$
+
+$$
+i.e., \mathbf{b'} = \left(2,2,-1\right) \space and \space \mathbf{b} = \begin{pmatrix}
+2\\
+2\\
+-1
+\end{pmatrix}.
+$$
+
+Also,
+
+$$
+\mathbf{c'X} = X_1 - X_2 + 3X_3 = \left(1, -1, 3\right) \begin{pmatrix}
+X_{1}\\
+X_{2}\\
+X_{3}
+\end{pmatrix} = \left(X_1, X_2, X_3\right)\begin{pmatrix}
+1\\
+-1\\
+3
+\end{pmatrix} = \mathbf{X'c},
+$$
+
+$$
+i.e., \mathbf{c'} = \left(1,-1,3\right) \space and \space \mathbf{c} = \begin{pmatrix}
+1\\
+-1\\
+3
+\end{pmatrix}.
+$$
+
+Finally,
+
+$$
+\mathbf{d'X} = X_1 + X_3 = \left(1, 0, 1\right) \begin{pmatrix}
+X_{1}\\
+X_{2}\\
+X_{3}
+\end{pmatrix} = \left(X_1, X_2, X_3\right)\begin{pmatrix}
+1\\
+0\\
+1
+\end{pmatrix} = \mathbf{X'd},
+$$
+
+$$
+i.e., \mathbf{d'} = \left(1,0,1\right) \space and \space \mathbf{d} = \begin{pmatrix}
+1\\
+0\\
+1
+\end{pmatrix}.
+$$
+
